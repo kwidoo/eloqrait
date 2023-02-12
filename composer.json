@@ -1,0 +1,54 @@
+{
+    "name": "kwidoo/eloqrait",
+    "description": "Eloqrait createis a lightweight Composer package for generating Eloquent model relations using a simple CLI command, with options to customize the namespace and models used. It is designed to streamline the process of creating relations between Laravel models.",
+    "keywords": [
+        "kwidoo",
+        "eloqrait"
+    ],
+    "homepage": "https://github.com/kwidoo/eloqrait",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Oleg Pashkovsky",
+            "email": "oleg@pashkovsky.me",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kwidoo\\Eloqrait\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kwidoo\\Eloqrait\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kwidoo\\Eloqrait\\EloqraitServiceProvider"
+            ],
+            "aliases": {
+                "Eloqrait": "Kwidoo\\Eloqrait\\EloqraitFacade"
+            }
+        }
+    }
+}
