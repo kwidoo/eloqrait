@@ -1,0 +1,24 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
+trait {{ traitName }}
+{
+    public function {{ relationName }}(): BelongsToMany
+    {
+        return $this->belongsToMany({{ relatedModel }}::class, '{{ pivotTable }}', '{{ foreignKey }}', '{{ relatedKey }}');
+    }
+
+    // Scopes
+    public function scopeBy{{ relationName }}Id($query, ${{ relationName }}Id)
+    {
+        return $query->where('{{ pivotTable }}.{{ foreignKey }}', ${{ relationName }}Id);
+    }
+
+    public function scopeBy{{ relationName }}($query, {{ relatedModel }} ${{ relationName }})
+    {
+        return $query->where('{{ pivotTable }}.{{ foreignKey }}', ${{ relationName }}->id);
+    }
+}

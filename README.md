@@ -1,10 +1,10 @@
-# Very short description of the package
+# eloqrait
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/kwidoo/eloqrait.svg?style=flat-square)](https://packagist.org/packages/kwidoo/eloqrait)
 [![Total Downloads](https://img.shields.io/packagist/dt/kwidoo/eloqrait.svg?style=flat-square)](https://packagist.org/packages/kwidoo/eloqrait)
 ![GitHub Actions](https://github.com/kwidoo/eloqrait/actions/workflows/main.yml/badge.svg)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+The `eloqrait` package provides Laravel Eloquent traits for defining various types of model relations.
 
 ## Installation
 
@@ -17,8 +17,12 @@ composer require kwidoo/eloqrait
 ## Usage
 
 ```php
-// Usage description here
+php artisan eloqrait <relation_type> <first_model_name> <second_model_name> --reverse --namespace=<namespace> --model_namespace=<model_namespace>
 ```
+
+The available relation types are `hasmany`, `belongsto`, and `belongstomany`. The `--reverse` option can be used to generate a reverse relation trait. You can also specify a custom namespace for the generated code and the model namespace.
+
+For more information on using the generated traits, please refer to the Laravel Eloquent documentation.
 
 ### Testing
 
@@ -40,8 +44,8 @@ If you discover any security related issues, please email oleg@pashkovsky.me ins
 
 ## Credits
 
--   [Oleg Pashkovsky](https://github.com/kwidoo)
--   [All Contributors](../../contributors)
+- [Oleg Pashkovsky](https://github.com/kwidoo)
+- [All Contributors](../../contributors)
 
 ## License
 

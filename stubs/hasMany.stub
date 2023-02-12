@@ -1,0 +1,42 @@
+<?php
+
+namespace {{namespace}};
+
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+trait {{traitName}}
+{
+    /**
+     * Define a has-many relationship for the {{relatedModel}}.
+     *
+     * @return HasMany
+     */
+    public function {{methodName}}()
+    {
+        return $this->hasMany({{relatedModel}}::class);
+    }
+
+    /**
+     * Scope a query to only include {{relatedModel}}s with the given ID.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  mixed  $ids
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeBy{{relatedModel}}Id($query, $ids)
+    {
+        return $query->whereIn('{{relatedModel}}_id', (array) $ids);
+    }
+
+    /**
+     * Scope a query to only include {{relatedModel}}s with the given name.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  string  $name
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeBy{{relatedModel}}($query, $name)
+    {
+        return $query->where('{{relatedModel}}', $name);
+    }
+}
