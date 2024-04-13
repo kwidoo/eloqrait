@@ -1,0 +1,25 @@
+<?php
+
+namespace {{namespace}};
+
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+
+trait {{traitName}}
+{
+    /**
+     * Get all of the related comments.
+     */
+    public function {{relationName}}(): MorphMany
+    {
+        return $this->morphMany({{relatedModel}}::class, '{{relationable}}');
+    }
+
+    /**
+     * Get the owning commentable model.
+     */
+    public function {{relationable}}(): MorphTo
+    {
+        return $this->morphTo();
+    }
+}

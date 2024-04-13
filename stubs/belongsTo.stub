@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models\Traits;
+
+use Illuminate\Database\Eloquent\Builder;
+
+trait {{traitName}}
+{
+    public function {related_table}()
+    {
+        return $this->belongsTo({RelatedModel}::class, '{foreign_key}');
+    }
+
+    public function scopeBy{RelatedModel}Id(Builder $query, $id)
+    {
+        return $query->where('{foreign_key}', $id);
+    }
+
+    public function scopeBy{RelatedModel}(Builder $query, {RelatedModel} $relatedModel)
+    {
+        return $query->where('{foreign_key}', $relatedModel->id);
+    }
+}
